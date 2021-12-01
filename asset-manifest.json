@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b91f3d02.chunk.css",
+    "main.js": "/static/js/main.3a6ec8c3.chunk.js",
+    "main.js.map": "/static/js/main.3a6ec8c3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5093be82.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5093be82.js.map",
+    "static/js/2.e408b1a3.chunk.js": "/static/js/2.e408b1a3.chunk.js",
+    "static/js/2.e408b1a3.chunk.js.map": "/static/js/2.e408b1a3.chunk.js.map",
+    "static/js/3.6c4262aa.chunk.js": "/static/js/3.6c4262aa.chunk.js",
+    "static/js/3.6c4262aa.chunk.js.map": "/static/js/3.6c4262aa.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.b91f3d02.chunk.css.map": "/static/css/main.b91f3d02.chunk.css.map",
+    "static/js/2.e408b1a3.chunk.js.LICENSE.txt": "/static/js/2.e408b1a3.chunk.js.LICENSE.txt",
+    "static/media/Paper.57c9e505.jpg": "/static/media/Paper.57c9e505.jpg",
+    "static/media/Rock.d6d165b5.jpg": "/static/media/Rock.d6d165b5.jpg",
+    "static/media/Scissors.f347a0de.jpg": "/static/media/Scissors.f347a0de.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5093be82.js",
+    "static/js/2.e408b1a3.chunk.js",
+    "static/css/main.b91f3d02.chunk.css",
+    "static/js/main.3a6ec8c3.chunk.js"
+  ]
+}

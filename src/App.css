@@ -1,0 +1,149 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.App-content{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+.Buttons{
+  display: flex;
+  margin: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  width:100px;
+  padding: 10px 20px;
+  background-color: #1E88E5;
+  border: 1px solid #1E88E5;
+  color: #fff;
+}
+
+.button:hover{
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #1E88E5;
+  color: #1E88E5;
+}
+
+.button:active{
+  padding: 10px 20px;
+  background-color:rgb(167, 167, 167);
+  border: 1px solid #1E88E5;
+  color: #1E88E5;
+}
+
+.Win-counter{
+
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.Loss-counter{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.Tie-counter{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.Scoreboard {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  /*width: 400px;*/
+  margin: 10px;
+
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.Images{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.Image-labels{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 15px 32px;
+  align-content: center;
+}
+
+.Player{
+  padding: 15px 32px;
+}
+
+.Computer{
+  padding: 15px 32px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
