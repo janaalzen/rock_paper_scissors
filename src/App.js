@@ -3,132 +3,85 @@ import Scissors from './img/scissors.png'
 import Paper from './img/paper.png'
 import './App.css';
 import swal from 'sweetalert';
+import { pulse } from 'react-animations'
+import styled, { keyframes } from 'styled-components'
+import { useState } from 'react';
 
+const Effect = styled.div`animation: 1s ${keyframes `${pulse}`} infinite `; 
 
 function App() {
 
-  let win =0;
-  let loss = 0;
-  let tie = 0;
-  let roundWin = 0;
-  let roundLoss = 0;
-  let roundTie = 0;
-  let message = ""
+const [winCount, setWinCount] = useState(0);
+const [lossCount, setLossCount] = useState(0);
+const [tiesCount, setTiesCount] = useState(0);
+const [roundWinCount, setRoundWinCount] = useState(0);
+const [roundLossCount, setRoundLossCount] = useState(0);
+const [imgPlayer, setImgPlayer] = useState(Rock);
+const [imgComputer, setImgComputer] = useState(Rock);
+const choices = [Rock, Paper, Scissors];
 
-
-  function RockPaperScissors(){
-    let choices = [Rock, Paper, Scissors]  
-    let chosen = choices[Math.floor(Math.random() * choices.length)];
-    document.getElementById('Computer-image').src = chosen;
-    console.log(chosen);
-    return chosen;
-  }
-
-  function rpsRules(inputOne, inputTwo){
-    let result = "";
-    if (inputOne == inputTwo){
-      result = "tie";
+function popUp(message){
+  swal(message)
+  .then(() => {
+    setWinCount(0); setLossCount(0); setTiesCount(0); //Reset counters after Popup
     }
-    else if ((inputOne == Rock && inputTwo == Scissors) || (inputOne == Paper && inputTwo == Rock) || (inputOne == Scissors && inputTwo == Paper)){
-      result = "win";
-    }
-    else {
-      result = "loss";
-    }
-    return result;
-  }
-
-  function playGame(human){
-    let computer = RockPaperScissors();
-    console.log(computer);
-    document.getElementById('Human-image').src = human;
-    return (rpsRules(human, computer));
-  }
-
-function updateText(Class, Text, Counter){
-  document.querySelector(Class).innerHTML = Text + Counter;
+  );
 }
 
-  function keepScore(result){
-    switch(result){
-      default:
-        case "win":
-          win++;
-          updateText('.Player', "Player: ", win);
-          break;
-        case "loss":
-          loss++;
-          updateText('.Computer', "Computer: ", loss);
-          break;
-        case "tie":
-          tie++;
-          updateText('.Ties', "Ties: ", tie);
-          break;
-    }
-    if (win+loss+tie === 5){ //5round game
-      let games=[win,loss]; //put result in array
-      var endResult = games.indexOf(Math.max(...games)); //search array for highest number to decide outcome
-      switch(endResult){
-        default:
-          case 0:
-            roundWin++;
-            message = ("You win!");
-            updateText('.Win-counter', "Wins: ", roundWin);
-            break;
-          case 1:
-            roundLoss++;
-            message = ("You lose!");
-            updateText('.Loss-counter', "Losses: ", roundLoss);
-            break;
+  function playGame(player){
+    let computer = choices[Math.floor(Math.random() * choices.length)];
+    setImgComputer(computer); //Set image for computer
+    setImgPlayer(player); //Set image for Player
+    if (player === computer){ //Tie
+        setTiesCount(tiesCount+1)
       }
-    
-      if (win===loss){
-        document.body.style = 'background: white;';
-        message = ("It's a tie!");
-        roundTie++;
-        updateText('.Tie-counter', "Ties: ", roundTie);
+      else if ((player === Rock && computer === Scissors) || (player === Paper && computer === Rock) || (player === Scissors && computer === Paper)){ //Win
+        setWinCount(winCount + 1)
+        if (winCount === 4){
+          setRoundWinCount(roundWinCount + 1)
+          popUp("You win!");
+        }
       }
-
-      swal(message)
-      .then((() => {
-        win=loss=tie=0; //reset counters
-        updateText('.Player', "Player: ", win);
-        updateText('.Computer', "Computer: ", loss); 
-        updateText('.Ties', "Ties: ", tie);
-      }));
-
-
-
-      
-    }
+      else { //Lose
+        setLossCount(lossCount + 1)
+        if (lossCount === 4){
+          setRoundLossCount(roundLossCount + 1)
+          popUp("You lose!");
+        }
+      }
   }
-
+  
     return (
       <div className="App">
           <main className="App-content">
-            <h1>Rock Paper Scissors</h1>
-            
+            <div className="App-header">
+              <h1>Rock Paper Scissors</h1>
+              <h2>First to five</h2> 
+            </div>
             <div className = "Scoreboard">
-              <div>Rounds</div>
+              <div> Rounds</div>
               <div className="Counters">
-                <a className="Win-counter">Wins: 0</a>
-                <a className="Loss-counter">Losses: 0</a>
-                <a className="Tie-counter">Ties: 0</a>
+                <div className="Win-counter">Wins {roundWinCount}</div>
+                <div className="Loss-counter">Losses {roundLossCount}</div>
               </div>
             </div>
             <div className = "Images">
-              <img id= "Human-image" src={Paper} width = "100" height = "100"></img>
-              <img id="Computer-image" src={Paper} width = "100" height = "100"></img> 
+              <Effect><img id= "player-image" src={imgPlayer} width = "100" height = "100" alt="Player"></img></Effect>
+              <Effect><img id="Computer-image" src={imgComputer} width = "100" height = "100" alt="Compute"></img></Effect>
             </div>
-            <div className="Image-labels"> <a className="Player">Player: 0</a><a className="Ties">Ties: 0</a> <a className="Computer ">Computer: 0</a> </div>
+            <div className="Image-labels"> 
+              <div className="Player">Player {winCount}</div>
+              <div className="Ties">Ties {tiesCount}</div> 
+              <div className="Computer ">Computer {lossCount}</div> 
+            </div>
             <div className="Buttons">
-              <button className = "button" onClick = {() => keepScore(playGame(Rock))}><img className="Rock-button" src = {Rock} width = "50" height = "50"></img></button>
-              <button className = "button" onClick = {() => keepScore(playGame(Paper))}><img className="Paper-button" src = {Paper} width = "50" height = "50"></img></button>
-              <button className = "button" onClick = {() => keepScore(playGame(Scissors))}><img className="Scissors-button" src = {Scissors} width = "50" height = "50"></img></button>
-              </div>
+              <button className = "button" onClick = {() => playGame(Rock)}><img src = {Rock} width = "50" height = "50" alt="Rock"></img></button>
+              <button className = "button" onClick = {() => playGame(Paper)}><img src = {Paper} width = "50" height = "50" alt="paper"></img></button>
+              <button className = "button" onClick = {() => playGame(Scissors)}><img src = {Scissors} width = "50" height = "50" alt="Scissors"></img></button>
+            </div>
           </main>
       </div>
   );
-}
+};
 
 export default App;
