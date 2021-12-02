@@ -1,9 +1,13 @@
 .App {
+  width: 100vw;
+  height: 100vh;
+  background-color: beige;
+
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: space-between;
-  align-content: space-between;
+  justify-content: space space-between;
+  align-content: center;
 }
 
 .App-content{
@@ -25,29 +29,29 @@
   display: flex;
   justify-content: center;
   margin: 10px;
-  width:100px;
-  padding: 10px 20px;
+  width:80;
+  height: 80;
+  padding: 20px 20px;
   background-color: #1E88E5;
-  border: 1px solid #1E88E5;
+  border: 3px solid black;
   color: #fff;
 }
 
 .button:hover{
-  padding: 10px 20px;
+  padding: 20px 20px;
   background-color: #fff;
-  border: 1px solid #1E88E5;
+  border: 3px solid black;
   color: #1E88E5;
 }
 
 .button:active{
-  padding: 10px 20px;
+  padding: 20px 20px;
   background-color:rgb(167, 167, 167);
-  border: 1px solid #1E88E5;
+  border: 3px solid black;
   color: #1E88E5;
 }
 
 .Win-counter{
-
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -78,20 +82,16 @@
   display: inline-block;
   font-size: 16px;
 }
-.Scoreboard {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: center;
-  /*width: 400px;*/
-  margin: 10px;
 
-  border: none;
-  color: white;
+.Scoreboard {
   padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  font-weight: bolder;
+  align-items: center;
+  font-size: 24px;
 }
 
 .Images{
@@ -105,6 +105,10 @@
 .Image-labels{
   display: flex;
   flex-direction: row;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  font-weight: bolder;
+  align-items: center;
   justify-content: center;
   padding: 15px 32px;
   align-content: center;
@@ -118,11 +122,7 @@
   padding: 15px 32px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;
@@ -132,18 +132,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(184, 176, 176);
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
