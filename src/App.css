@@ -1,22 +1,37 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background-color: beige;
+  background-color: white;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
-  justify-content: space space-between;
-  align-content: center;
+  justify-content: space-evenly;
+  align-content: flex-start;
 }
 
 .App-content{
+  border: 3px solid black;
+  width: 500px;
+  background-color: beige;
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-evenly;
+  align-content: flex-start;
 }
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 24px;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(150, 150, 128);  
+}
+
 .Buttons{
   display: flex;
   margin: 10px;
@@ -26,6 +41,7 @@
 }
 
 .button{
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   margin: 10px;
@@ -51,71 +67,68 @@
   color: #1E88E5;
 }
 
-.Win-counter{
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-
-.Loss-counter{
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-.Tie-counter{
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-
 .Scoreboard {
   padding: 15px 32px;
   display: flex;
   flex-direction: column;
-  background-color: #4CAF50; /* Green */
+  border-radius: 5%;
+  background-color: rgb(229, 229, 194);
   color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(150, 150, 128);
   font-weight: bolder;
   align-items: center;
-  font-size: 24px;
+  font-size: 32px;
 }
+
+.Counters{
+  display: flex;
+  flex-direction: row;
+}
+
+.Win-counter{
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.Loss-counter{
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 28px;
+}
+
 
 .Images{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-content: center;
-
 }
 
 .Image-labels{
+  font-size: 24px;
   display: flex;
   flex-direction: row;
-  background-color: #4CAF50; /* Green */
+  border-radius: 5%;
+  background-color: rgb(229, 229, 194);
   color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(150, 150, 128);
   font-weight: bolder;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 15px 32px;
-  align-content: center;
+  align-content: space-around;
 }
 
 .Player{
   padding: 15px 32px;
+  font-size: 24;
 }
 
 .Computer{
@@ -124,19 +137,6 @@
 
 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(184, 176, 176);
-}
 
-.App-link {
-  color: #61dafb;
-}
 
 
